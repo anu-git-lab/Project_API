@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FreeProject API Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">FreeProject API</a>
+    <div class="d-flex gap-2">
+      <a class="btn btn-outline-light btn-sm" href="login.html">Login</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container py-5">
+  <div class="hero p-4 p-md-5 rounded-4 mb-4">
+    <span class="badge bg-primary mb-3">HTML • JavaScript • Bootstrap 5</span>
+    <h1 class="display-5 fw-bold">FreeProject REST API Portal</h1>
+    <p class="lead">Frontend interface for the documented ASP.NET Core FreeProject API.</p>
+    <a href="login.html" class="btn btn-primary btn-lg">Start</a>
+  </div>
+
+  <div class="row g-4" id="moduleCards"></div>
+</main>
+<script src="js/api.js"></script>
+<script>
+const modules = [
+  ["Bank Loan","Loan applications, customers and bank employees","bank-loan.html"],
+  ["Bus Booking","Vendors, routes, schedules and bookings","bus-booking.html"],
+  ["College Project","Student project submissions and statuses","college-project.html"],
+  ["E-Commerce","Products, customers, cart and orders","ecommerce.html"],
+  ["Employee App","Employee CRUD and lookups","employee-app.html"],
+  ["Employee Onboarding","Employee lifecycle and master data","employee-onboarding.html"],
+  ["Enquiry Management","Customer enquiries, categories and statuses","enquiry.html"],
+  ["Fees Tracking","Enrollments, payments and batches","fees.html"],
+  ["Goal Tracker","Goals, tasks and reminders","goals.html"],
+  ["Leave Tracker","Employees, balances and leave requests","leave.html"],
+  ["Project Competition","Competitions and project submissions","competition.html"],
+  ["Smart Parking","Sites, floors and parking records","parking.html"],
+  ["Survey","Surveys, questions and responses","survey.html"],
+  ["User App","JWT authentication and user management","user-app.html"]
+];
+document.getElementById("moduleCards").innerHTML = modules.map(m => `
+  <div class="col-md-6 col-xl-4">
+    <div class="card h-100 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">${m[0]}</h5>
+        <p class="card-text text-secondary">${m[1]}</p>
+        <a class="btn btn-outline-primary" href="pages/${m[2]}">Open Module</a>
+      </div>
+    </div>
+  </div>`).join("");
+</script>
+</body>
+</html>
